@@ -3,7 +3,7 @@ const ops = new Map();
 function create_tr(n,divs,divd){
 	var tr = '<tr id="tr'+n+'" style="visibility:collapse;">';
 	tr+= '<td><p>&nbsp;</p>';
-	tr+="<p id=\"p"+n+"\">&iquest;Cuanto es "+divd+" entre "+divs+"&quest;</p>";
+	tr+="<p class=\"pregunta\" id=\"p"+n+"\">&iquest;Cuanto es "+divd+" entre "+divs+"&quest;</p>";
 	tr+='Son: <input type="text" id="a'+n+'"></input>';
 	tr+='Sobran <input type="text" id="a'+n+'r"></input>';
 	tr+='<button onclick="check_division('+n+')">Checar</button>';
@@ -13,8 +13,18 @@ function create_tr(n,divs,divd){
 	return tr;
 }
 
+function next(n){
+	var button = document.getElementById("cont"+n);
+	n = n + 1;
+	var next_text = document.getElementById("bingo"+n);
+
+	button.style.visibility="collapse";
+	next_text.style.visibility = "visible";
+}
+
 function init(){
 	var tablita=document.getElementById("tablita");
+	var musica=document.getElementById("musica");
 	ops.set("divisor2",23);
 	ops.set("dividendo2",312);
 	tablita.innerHTML+=create_tr(2,ops.get("divisor2"),ops.get("dividendo2"));
@@ -87,9 +97,14 @@ function init(){
 	ops.set("divisor16",72);
 	ops.set("dividendo16",152);
 	tablita.innerHTML+=create_tr(16,ops.get("divisor16"),ops.get("dividendo16"));
-	tablita.innerHTML+="<tr style=\"visibility:collapse;\"><td>";
-	tablita.innerHTML+="<p>Eit, aun no es hora de tu regalo</p>";
-	tablita.innerHTML+="</td></tr>";
+
+}
+
+function playmusic(){
+	var cap = document.getElementById("capital");
+	var musica= document.getElementById("musica");
+	cap.style.visibility="visible";
+	musica.style.visibility="hidden";
 }
 
 function click_a1(){
@@ -100,9 +115,9 @@ function click_a1(){
 
 	if(v == "moscu" || v == "moscú")
 	{
-		document.getElementById("tr2").style.visibility="visible";
 		r.innerHTML = "Bieeeeen";
-		reveal(n+1);
+		document.getElementById("cont").style.visibility="collapse";
+		reveal(2);
 	}
 	else
 	{
@@ -120,6 +135,8 @@ function reveal(n)
 	}
 	else
 	{
+		var bingo = document.getElementById("bingo1");
+		 bingo.style.visibility="visible";
 		//Visible final
 	}
 

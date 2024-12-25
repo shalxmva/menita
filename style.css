@@ -1,0 +1,14 @@
+td{
+    border-top: 2px black solid;
+}
+
+.bingo{
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    font-size: large;
+}
+
+p.pregunta{
+    font-weight: bold;
+}

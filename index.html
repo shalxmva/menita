@@ -3,23 +3,73 @@
 		<title>
 			Salva tu regalo
 		</title>
+		<link rel="stylesheet" href="style.css">
 		<script src="script.js"></script>
 	</head>
-	<body onload="init()">
-		<audio controls autoplay>
+	<body onload="init()" style="align-content: center;">
+		<audio id="musica" onplay="playmusic()" autoplay controls>
 			<source src="music.mp3" type="audio/mpeg">
 		</audio>
 		<table>
 			<tbody id="tablita">
-			<tr>
+			<tr style="visibility: collapse;" id="capital">
 				<td>
+					<p>&nbsp</p>
 					<p>Capital de Rusia</p>
 					<input type="text" id="a1"></input>
-					<button onclick="click_a1()">Checar</button>
+					<button id="cont" onclick="click_a1()">Checar</button>
 					<span id="result1"></span>
+					<p>&nbsp;</p>
 				</td>
 			</tr>
 			</tbody>
 		</table>
+		<div id="bingo1" class="bingo" style="visibility: collapse;">
+			<p>
+				Bien hecho has llegado hasta el final,
+			ahora sabrás cual es tu regalo.
+			</p>
+			<button id="cont1" onclick="next(1);">Continuar</button>
+		</div>	
+		<div id="bingo2" class="bingo" style="visibility: collapse;">
+			<img src="family.jpg" />
+			<p>
+			El amor de la familia es el mejor regalo que puedas tener.
+			Disfr&uacute;lo mientras dios te lo permita.
+			</p>
+			<button id="cont2" onclick="next(2);">Continuar</button>
+		</div>
+		<div id="bingo3" class="bingo" style="visibility: collapse;">
+			<p>
+				Disfruta el amor de tu mamá, tu que aún tienes el privilegio de tenerla ;( 
+			</p>
+			<img src="mama.jpg" />
+			<button id="cont3" onclick="next(3);">Continuar</button>
+		</div>
+		<div id="bingo4" class="bingo" style="visibility: collapse;">
+			
+			<p>
+				También tienes un padrino de lujo, humildemente, lo mejor de lo mejor.
+			</p>
+			
+			<img src="padrino.jpg" />
+			<button id="cont4" onclick="next(4);">Continuar</button>
+		</div>
+		<div id="bingo5" class="bingo" style="visibility: collapse;">
+			<p>
+				Ahhh se crea, para encontrar su regalo, deber&aacute;s seguir las siguientes instrucciones:
+			</p>
+			<ol>
+				<li>Deberas salir de tu casa y manejar hacia la derecha hasta llegar a la segunda calle</li>
+				<li>Continuar todo derecho hasta llegar a una calle donde empieza un camellon</li>
+				<li>Voltear a la izquierda hasta donde topa la calle y voltear a la derecha</li>
+				<li>Seguir todo derecho hasta donde cruces un rio y voltear a la derecha</li>
+				<li>Seguir derecho hasta donde hay una calle de un casino y voltear a la izquierda</li>
+				<li> En la primer calle voltear a la izquierda</li>
+				<li>Seguir derecho hasta donde encuentres un oxxo del lado derecho y voltear ahi a la derecha</li>
+				<li>Continuar hasta una casa del lado derecho donde hay un buzon que dice "444"</li>
+				<li>El tesoro se encuentra ahi</li>
+			</ol>
+		</div>
 	</body>
 </html>
